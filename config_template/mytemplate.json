@@ -322,7 +322,6 @@
     {
       "tag": "BinOKX",
       "outbounds": [
-        "Proxy",
         "TW",
         "HK",
         "SG",
@@ -340,7 +339,6 @@
     {
       "tag": "USRule",
       "outbounds": [
-        "Proxy",
         "TW",
         "HK",
         "SG",
