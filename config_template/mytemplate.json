@@ -483,12 +483,10 @@
         }
       ]
     },
-     { "type": "urltest",
+     { "type": "selector",
       "tag": "All Proxy",
       "outbounds": [
         "{all}"
-      ],
-        }
       ]
     },
     {
