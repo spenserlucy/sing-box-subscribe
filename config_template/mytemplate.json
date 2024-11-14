@@ -348,8 +348,7 @@
         "USS",
         "MapleCloud",
         "CTC200",
-        "All Proxy"
-        
+        "All Proxy"  
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
