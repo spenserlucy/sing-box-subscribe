@@ -305,7 +305,8 @@
         "US",
         "USS",
         "MapleCloud",
-        "CTC200"
+        "CTC200",
+        "All Proxy"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -322,7 +323,8 @@
         "US",
         "USS",
         "MapleCloud",
-        "CTC200"
+        "CTC200",
+        "All Proxy"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -339,7 +341,9 @@
         "US",
         "USS",
         "MapleCloud",
-        "CTC200"
+        "CTC200",
+        "All Proxy"
+        
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -479,7 +483,7 @@
         }
       ]
     },
-         "type": "urltest",
+      "type": "urltest",
       "tag": "All Proxy",
       "outbounds": [
         "{all}"
