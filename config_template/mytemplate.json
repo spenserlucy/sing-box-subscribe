@@ -296,7 +296,7 @@
  "outbounds": [
     {
       "type": "selector",
-      "tag": "select",
+      "tag": "Proxy",
       "outbounds": [
         "{all}"
       ],
@@ -311,7 +311,7 @@
     },
     {
       "type": "selector",
-      "tag": "openai",
+      "tag": "BinOKX",
       "outbounds": [
         "{all}"
       ],
@@ -326,7 +326,7 @@
     },
     {
       "type": "selector",
-      "tag": "tiktok",
+      "tag": "USRule",
       "outbounds": [
         "{all}"
       ],
