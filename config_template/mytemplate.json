@@ -399,109 +399,165 @@
         "outbound": "select"
       }
     ],
-    "rule_set": [
+  "rule_set": [
       {
         "type": "remote",
-        "tag": "geosite-geolocation-!cn",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-        "download_detour": "direct"
+        "download_detour": "Proxy",
+        "tag": "BinOKX0",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
       },
       {
         "type": "remote",
-        "tag": "geoip-cn",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_ip_rule_set/geoip-cn.srs",
-        "download_detour": "direct"
+        "download_detour": "Proxy",
+        "tag": "BinOKX1",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
       },
       {
         "type": "remote",
-        "tag": "geoip-google",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_ip_rule_set/geoip-google.srs",
-        "download_detour": "direct"
+        "download_detour": "Proxy",
+        "tag": "USRule0",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
       },
       {
         "type": "remote",
-        "tag": "geoip-telegram",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_ip_rule_set/geoip-telegram.srs",
-        "download_detour": "direct"
+        "download_detour": "Proxy",
+        "tag": "USRule1",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
       },
       {
         "type": "remote",
-        "tag": "geoip-twitter",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_ip_rule_set/geoip-twitter.srs",
-        "download_detour": "direct"
+        "download_detour": "Proxy",
+        "tag": "USRule2",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
       },
       {
         "type": "remote",
-        "tag": "geoip-netflix",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_ip_rule_set/geoip-netflix.srs",
-        "download_detour": "direct"
+        "download_detour": "Proxy",
+        "tag": "USRule3",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
       },
       {
         "type": "remote",
-        "tag": "Global",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/Global.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "USRule4",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
       },
       {
         "type": "remote",
-        "tag": "YouTube",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/YouTube.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "China0",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/China/China.srs"
       },
       {
         "type": "remote",
-        "tag": "OpenAI",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/OpenAI.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "China1",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ChinaIPs/ChinaIPs.srs"
       },
       {
         "type": "remote",
-        "tag": "TikTok",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/TikTok.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "China2",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Apple/Apple.srs"
       },
       {
         "type": "remote",
-        "tag": "Telegram",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/Telegram.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "China3",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/WeChat/WeChat.srs"
       },
       {
         "type": "remote",
-        "tag": "Netflix",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/Netflix.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "China4",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ByteDance/ByteDance.srs"
       },
       {
         "type": "remote",
-        "tag": "WeChat",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/WeChat.json",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "Bilibili",
-        "format": "source",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/yangchuansheng/sing-box-geosite/main/rule/Bilibili.json",
-        "download_detour": "direct"
+        "format": "binary",
+        "download_detour": "Proxy",
+        "tag": "Ad0",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Advertising/Advertising.srs"
       }
     ],
-    "final": "direct",
-    "find_process": true,
-    "auto_detect_interface": true
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "rule_set": [
+          "BinOKX0",
+          "BinOKX1"
+        ],
+        "outbound": "BinOKX"
+      },
+      {
+        "rule_set": [
+          "USRule0",
+          "USRule1",
+          "USRule2",
+          "USRule3",
+          "USRule4"
+        ],
+        "outbound": "USRule"
+      },
+      {
+        "rule_set": [
+          "China0",
+          "China1",
+          "China2",
+          "China3",
+          "China4"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "Ad0"
+        ],
+        "outbound": "block"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Proxy"
   },
   "experimental": {
     "cache_file": {
