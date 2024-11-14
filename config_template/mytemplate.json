@@ -479,6 +479,20 @@
         }
       ]
     },
+         "type": "urltest",
+      "tag": "All Proxy",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "exclude",
+          "keywords": [
+            ""
+          ]
+        }
+      ]
+    },
     {
       "type": "direct",
       "tag": "direct"
