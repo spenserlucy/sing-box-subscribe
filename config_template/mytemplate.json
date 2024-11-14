@@ -488,12 +488,6 @@
       "outbounds": [
         "{all}"
       ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "流量"
-          ]
         }
       ]
     },
