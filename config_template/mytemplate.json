@@ -490,9 +490,9 @@
       ],
       "filter": [
         {
-          "action": "exclude",
+          "action": "include",
           "keywords": [
-            "ve"
+            "流量"
           ]
         }
       ]
