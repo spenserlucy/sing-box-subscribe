@@ -294,39 +294,197 @@
     "final": "Proxy"
   },
  "outbounds": [
-    {
-      "type": "selector",
+ {
       "tag": "Proxy",
       "outbounds": [
-        "{all}"
+        "TW",
+        "HK",
+        "SG",
+        "JP",
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
       ],
-      "filter": [
-        {
-          "action": "exclude",
-          "keywords": [
-            "官网|网站|剩余|流量|过期|时间|期|地址"
-          ]
-        }
-      ]
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
-      "type": "selector",
       "tag": "BinOKX",
       "outbounds": [
+        "Proxy",
+        "TW",
+        "HK",
+        "SG",
+        "JP",
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "USRule",
+      "outbounds": [
+        "Proxy",
+        "TW",
+        "HK",
+        "SG",
+        "JP",
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "type": "urltest",
+      "tag": "TW",
+      "outbounds": [
         "{all}"
       ],
       "filter": [
         {
-          "action": "exclude",
+          "action": "include",
           "keywords": [
-            "🇭🇰|HK|hk|香港|港|官网|网站|剩余|流量|过期|时间|期|地址"
+            "台湾|TW|Taiwan"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "HK",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇭🇰|香港|HK|Hong"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "SG",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇸🇬|新加坡|SG|狮城|Singapore"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "JP",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇯🇵|日本|JP|Japan"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "KO",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            " 🇰🇷|KO|韩国|Korea"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "US",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇺🇸|美国|US|United"
           ]
         }
       ]
     },
     {
       "type": "selector",
-      "tag": "USRule",
+      "tag": "USS",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+             "🇺🇸|美国|US|United"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "MapleCloud",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "Premium"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "CTC200",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "倍率"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "All Proxy",
       "outbounds": [
         "{all}"
       ],
@@ -334,7 +492,7 @@
         {
           "action": "exclude",
           "keywords": [
-            "官网|网站|剩余|流量|过期|时间|期|地址"
+            ""
           ]
         }
       ]
