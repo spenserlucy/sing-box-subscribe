@@ -1,29 +1,48 @@
 {
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "my_profile2",
+      "store_fakeip": true
+    },
+    "clash_api": {
+      "external_ui": "ui",
+      "external_controller": "0.0.0.0:9090",
+      "external_ui_download_detour": "Proxy",
+      "default_mode": "rule"
+    }
+  },
   "dns": {
     "servers": [
       {
-        "tag": "dns_proxy",
-        "address": "https://1.1.1.1/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
-        "detour": "select"
+        "tag": "google",
+        "address": "tls://8.8.8.8",
+        "detour": "Proxy"
       },
       {
-        "tag": "dns_direct",
-        "address": "h3://dns.alidns.com/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
-        "detour": "direct"
+        "tag": "fallback",
+        "address": "8.8.8.8",
+        "address_resolver": "google",
+        "detour": "Proxy"
       },
       {
-        "tag": "dns_block",
-        "address": "rcode://refused"
-      },
-      {
-        "tag": "dns_resolver",
+        "tag": "local-dns",
         "address": "223.5.5.5",
-        "strategy": "ipv4_only",
         "detour": "direct"
+      },
+      {
+        "tag": "fakeip-dns",
+        "address": "fakeip"
+      },
+      {
+        "tag": "block-dns",
+        "address": "rcode://success"
       }
     ],
     "rules": [
@@ -113,223 +132,8 @@
       "users": []
     }
   ],
-  "outbounds": [
-    {
-      "type": "selector",
-      "tag": "select",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "exclude",
-          "keywords": [
-            "官网|网站|剩余|流量|过期|时间|期|地址"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "selector",
-      "tag": "openai",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "exclude",
-          "keywords": [
-            "🇭🇰|HK|hk|香港|港|官网|网站|剩余|流量|过期|时间|期|地址"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "selector",
-      "tag": "tiktok",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "exclude",
-          "keywords": [
-            "官网|网站|剩余|流量|过期|时间|期|地址"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    }
-  ],
   "route": {
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "dns-out"
-      },
-      {
-        "clash_mode": "direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "select"
-      },
-      {
-        "domain_suffix": [
-          "icloudnative.io",
-          "fuckcloudnative.io",
-          "sealos.io",
-          "cdn.jsdelivr.us"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "process_name": [
-          "TencentMeeting",
-          "NemoDesktop",
-          "ToDesk",
-          "ToDesk_Service",
-          "WeChat",
-          "OpenLens",
-          "Tailscale",
-          "wireguard-go",
-          "Tunnelblick",
-          "softwareupdated",
-          "kubectl"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "WeChat",
-          "Bilibili"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "block"
-      },
-      {
-        "inbound": "socks-in",
-        "outbound": "select"
-      },
-      {
-        "rule_set": "OpenAI",
-        "outbound": "openai"
-      },
-      {
-        "domain_suffix": [
-          "openai.com",
-          "oaistatic.com",
-          "oaiusercontent.com"
-        ],
-        "outbound": "openai"
-      },
-      {
-        "package_name": "com.openai.chatgpt",
-        "outbound": "openai"
-      },
-      {
-        "rule_set": "TikTok",
-        "outbound": "tiktok"
-      },
-      {
-        "package_name": "com.zhiliaoapp.musically",
-        "outbound": "tiktok"
-      },
-      {
-        "domain_suffix": [
-          "depay.one",
-          "orbstack.dev"
-        ],
-        "outbound": "select"
-      },
-      {
-        "process_name": [
-          "DropboxMacUpdate",
-          "Dropbox"
-        ],
-        "outbound": "select"
-      },
-      {
-        "package_name": [
-          "com.google.android.youtube",
-          "com.android.vending",
-          "org.telegram.messenger",
-          "org.telegram.plus",
-          "com.google.android.googlequicksearchbox",
-          "app.rvx.android.youtube",
-          "com.mudvod.video",
-          "com.fox2code.mmm",
-          "com.twitter.android"
-        ],
-        "outbound": "select"
-      },
-      {
-        "domain": "accounts.google.com",
-        "domain_suffix": [
-          "sourceforge.net",
-          "fhjasokiwq.com"
-        ],
-        "outbound": "select"
-      },
-      {
-        "domain_suffix": "cloud.sealos.io",
-        "outbound": "direct"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-geolocation-!cn"
-          },
-          {
-            "rule_set": "geoip-cn",
-            "invert": true
-          }
-        ],
-        "outbound": "select"
-      },
-      {
-        "rule_set": "Global",
-        "outbound": "select"
-      },
-      {
-        "rule_set": "geoip-cn",
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "YouTube",
-          "Telegram",
-          "Netflix",
-          "geoip-google",
-          "geoip-telegram",
-          "geoip-twitter",
-          "geoip-netflix"
-        ],
-        "outbound": "select"
-      }
-    ],
-  "rule_set": [
+    "rule_set": [
       {
         "type": "remote",
         "format": "binary",
@@ -489,16 +293,631 @@
     "auto_detect_interface": true,
     "final": "Proxy"
   },
-  "experimental": {
-    "cache_file": {
-      "enabled": true
+  "outbounds": [
+    {
+      "tag": "Proxy",
+      "outbounds": [
+        "TW",
+        "HK",
+        "SG",
+        "JP",
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
-    "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "metacubexd",
-      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "select",
-      "default_mode": "rule"
+    {
+      "tag": "BinOKX",
+      "outbounds": [
+        "Proxy",
+        "TW",
+        "HK",
+        "SG",
+        "JP",
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "USRule",
+      "outbounds": [
+        "Proxy",
+        "TW",
+        "HK",
+        "SG",
+        "JP",
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "TW",
+      "outbounds": [
+        "TW-C20-2.0倍率",
+        "Taiwan 01"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "HK",
+      "outbounds": [
+        "HK-C20-0.2倍率",
+        "HK-C20-2.0倍率",
+        "HongKong 01",
+        "HongKong 02",
+        "HongKong 03 [Premium]",
+        "HongKong 04 [Premium]"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "SG",
+      "outbounds": [
+        "SG-C20-1.0倍率",
+        "Singapore 01",
+        "Singapore 02 [Premium]",
+        "Singapore 03"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "JP",
+      "outbounds": [
+        "JP-C20-0.5倍率",
+        "JP-C20-1.0倍率",
+        "Japan 01",
+        "Japan 02",
+        "Japan 03 [Premium]"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "KO",
+      "outbounds": [
+        "HongKong 01",
+        "HongKong 02",
+        "HongKong 03 [Premium]",
+        "HongKong 04 [Premium]",
+        "South Korea 01 [Premium]"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "US",
+      "outbounds": [
+        "US-C20-1.0倍率",
+        "United States 01",
+        "United States 02",
+        "United States 03 [Premium]"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "USS",
+      "outbounds": [
+        "US-C20-1.0倍率",
+        "United States 01",
+        "United States 02",
+        "United States 03 [Premium]"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "MapleCloud",
+      "outbounds": [
+        "HongKong 03 [Premium]",
+        "HongKong 04 [Premium]",
+        "Japan 03 [Premium]",
+        "Singapore 02 [Premium]",
+        "South Korea 01 [Premium]",
+        "United States 03 [Premium]"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "CTC200",
+      "outbounds": [
+        "HK-C20-0.2倍率",
+        "HK-C20-2.0倍率",
+        "SG-C20-1.0倍率",
+        "JP-C20-0.5倍率",
+        "JP-C20-1.0倍率",
+        "TW-C20-2.0倍率",
+        "US-C20-1.0倍率",
+        "DE-C20-1.0倍率"
+      ],
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "All Proxy",
+      "outbounds": [
+        "剩余流量：182.46 GB",
+        "距离下次重置剩余：25 天",
+        "套餐到期：2025-10-09",
+        "HongKong 01",
+        "HongKong 02",
+        "HongKong 03 [Premium]",
+        "HongKong 04 [Premium]",
+        "Taiwan 01",
+        "Japan 01",
+        "Japan 02",
+        "Japan 03 [Premium]",
+        "Singapore 01",
+        "Singapore 02 [Premium]",
+        "Singapore 03",
+        "South Korea 01 [Premium]",
+        "United States 01",
+        "United States 02",
+        "United States 03 [Premium]",
+        "Germany 01",
+        "United Kingdom 01",
+        "France 01",
+        "Australia 01",
+        "HK-C20-0.2倍率",
+        "HK-C20-2.0倍率",
+        "SG-C20-1.0倍率",
+        "JP-C20-0.5倍率",
+        "JP-C20-1.0倍率",
+        "TW-C20-2.0倍率",
+        "US-C20-1.0倍率",
+        "DE-C20-1.0倍率"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "type": "direct",
+      "tag": "➜ Direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "tag": "剩余流量：182.46 GB",
+      "server": "s3.maple.icu",
+      "server_port": 18364,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "距离下次重置剩余：25 天",
+      "server": "s3.maple.icu",
+      "server_port": 18364,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "套餐到期：2025-10-09",
+      "server": "s3.maple.icu",
+      "server_port": 18364,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "HongKong 01",
+      "server": "s3.maple.icu",
+      "server_port": 18364,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "HongKong 02",
+      "server": "m3.maple.icu",
+      "server_port": 18415,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "HongKong 03 [Premium]",
+      "server": "s1.maple.icu",
+      "server_port": 31416,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "HongKong 04 [Premium]",
+      "server": "s2.maple.icu",
+      "server_port": 32998,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Taiwan 01",
+      "server": "s1.maple.icu",
+      "server_port": 37758,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Japan 01",
+      "server": "m1.maple.icu",
+      "server_port": 19863,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Japan 02",
+      "server": "s1.maple.icu",
+      "server_port": 46492,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Japan 03 [Premium]",
+      "server": "e1.maple.icu",
+      "server_port": 48678,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Singapore 01",
+      "server": "m3.maple.icu",
+      "server_port": 28771,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Singapore 02 [Premium]",
+      "server": "s2.maple.icu",
+      "server_port": 42635,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Singapore 03",
+      "server": "m2.maple.icu",
+      "server_port": 20283,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "South Korea 01 [Premium]",
+      "server": "e1.maple.icu",
+      "server_port": 20109,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "United States 01",
+      "server": "m2.maple.icu",
+      "server_port": 31329,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "United States 02",
+      "server": "e1.maple.icu",
+      "server_port": 31329,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "United States 03 [Premium]",
+      "server": "e1.maple.icu",
+      "server_port": 45587,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Germany 01",
+      "server": "m1.maple.icu",
+      "server_port": 15838,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "United Kingdom 01",
+      "server": "m1.maple.icu",
+      "server_port": 16400,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "France 01",
+      "server": "m1.maple.icu",
+      "server_port": 24413,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "Australia 01",
+      "server": "e1.maple.icu",
+      "server_port": 43574,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "abdb3ed6-3eaa-40d7-8e5f-4c3dcfc4e9e5",
+      "plugin": "",
+      "plugin_opts": ""
+    },
+    {
+      "tag": "HK-C20-0.2倍率",
+      "server": "hk01.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10011,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "gamedownloads-rockstargames-com.akamaized.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "fD-JQwWPuu19JPqs_sOmo63GkCOymNYz0tCzTlZaOXE",
+          "short_id": "6a1ebd5a12214ab1"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "HK-C20-2.0倍率",
+      "server": "hk02.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10010,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "www.douyin.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "XCqWZSu0nSpAw3BQdU2o0iNc6yEgEg7yJl5VuQOjiAU",
+          "short_id": "6a1ebd5a12214ab2"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "SG-C20-1.0倍率",
+      "server": "sg01.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10011,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "object-bnolauncher-ct.bandainamco-ol.jp",
+        "reality": {
+          "enabled": true,
+          "public_key": "U2BW44XOJRD8ndeWrQ0MoNHSEQf6lGLjeAPRHhqo2AI",
+          "short_id": "6a1ebd5a12214ab3"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "JP-C20-0.5倍率",
+      "server": "jp01.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10011,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "gamedownloads-rockstargames-com.akamaized.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "CCHHymJgU03Z5nM78A3CkaTOPLyLKcFIRtsEU0ArNDI",
+          "short_id": "6a1ebd5a12214ab4"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "JP-C20-1.0倍率",
+      "server": "jp02.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10011,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "gamedownloads-rockstargames-com.akamaized.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "yjrMFQLDq1A02wm0Sp8j9RzB8sUb2-8ccBT5OExwTWg",
+          "short_id": "6a1ebd5a12214ac6"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "TW-C20-2.0倍率",
+      "server": "tw01.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10010,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "gamedownloads-rockstargames-com.akamaized.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "4Fob6n-sVKs6CyYP6zLSCApzJ19--G6LJEU5gYXXfBI",
+          "short_id": "6a1ebd5a12214ab5"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "US-C20-1.0倍率",
+      "server": "us01.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10011,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "gamedownloads-rockstargames-com.akamaized.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "mES4Y53j5rkzpbHFHb_ZZ0GOmWVG1Q-KPM4vPkcf2GQ",
+          "short_id": "6a1ebd5a12214ab6"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "DE-C20-1.0倍率",
+      "server": "de01.c20.xuexiqiangguo.525536.xyz",
+      "server_port": 10011,
+      "type": "vless",
+      "uuid": "fc839d83-e0fa-4a48-979d-fda5802f1c6d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "gamedownloads-rockstargames-com.akamaized.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "nR554BZ_w30rp83XJ78SlJmWtlRXWKnUZ8fiTLAMhgM",
+          "short_id": "6a1ebd5a12214ab7"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
     }
-  }
+  ]
 }
