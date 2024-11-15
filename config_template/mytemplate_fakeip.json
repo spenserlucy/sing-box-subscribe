@@ -55,7 +55,7 @@
         "outbound": "any",
         "server": "local-dns"
       },
-        {
+      {
         "rule_set": "adblock", 
         "outbound": "adblock" 
       },
