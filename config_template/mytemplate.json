@@ -455,6 +455,12 @@
           "keywords": [
             "🇺🇸|美国|US|United"
           ]
+        },
+        {
+          "action": "exclude",
+          "keywords": [
+            "倍率"
+          ]
         }
       ]
     },
