@@ -197,14 +197,6 @@
         "outbound": "direct"
       },
       {
-        "clash_mode": "direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "GLOBAL"
-      },
-      {
         "rule_set": [
           "BinOKX0",
           "BinOKX1"
