@@ -303,13 +303,6 @@
  {
       "tag": "Proxy",
       "outbounds": [
-        "TW",
-        "HK",
-        "SG",
-        "JP",
-        "KO",
-        "US",
-        "USS",
         "MapleCloud",
         "CTC200",
         "All Proxy"
