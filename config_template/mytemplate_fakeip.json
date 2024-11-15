@@ -55,6 +55,11 @@
         "outbound": "any",
         "server": "local-dns"
       },
+        {
+        "rule_set": "adblock", 
+        "outbound": "adblock" 
+      },
+ 
       {
         "rule_set": [
           "BinOKX0",
@@ -205,6 +210,13 @@
         "download_detour": "Proxy",
         "tag": "China4",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ByteDance/ByteDance.srs"
+      },
+      {
+        "tag": "adblock",                      
+        "type": "remote",                       
+        "format": "source",                     
+        "url": "https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Sing-box/main/adblock_reject.json",
+        "update_interval": 120                  
       }
     ],
     "rules": [
@@ -483,6 +495,10 @@
     {
       "type": "dns",
       "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "adblock"                        
     }
   ]
 }
