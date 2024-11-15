@@ -1,6 +1,7 @@
 {
-  "log": {
-    "level": "info",
+ "log": {
+    "disabled": false,
+    "level": "warn",
     "timestamp": true
   },
   "experimental": {
@@ -20,74 +21,76 @@
  "dns": {
     "servers": [
       {
-        "tag": "proxyDns",
-        "address": "tls://8.8.8.8",
-        "detour": "Proxy"
-      },
-      {
-        "tag": "localDns",
-        "address": "https://223.5.5.5/dns-query",
+        "tag": "tx",
+        "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
       },
       {
-        "tag": "block",
-        "address": "rcode://success"
+        "tag": "google",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "tx",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
+        "client_subnet": "1.0.1.0"
       }
     ],
     "rules": [
       {
-        "rule_set": "geosite-category-ads-all",
-        "server": "block"
-      },
-      {
         "outbound": "any",
-        "server": "localDns",
-        "disable_cache": true
+        "server": "tx"
       },
-      {
-        "rule_set": "geosite-cn",
-        "server": "localDns"
-      },   
       {
         "clash_mode": "direct",
-        "server": "localDns"
+        "server": "tx"
       },
       {
         "clash_mode": "global",
-        "server": "proxyDns"
+        "server": "google"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
-        "server": "proxyDns"
+        "rule_set": "geosite-cn",
+        "server": "tx"
+      }, 
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "google",
+        "client_subnet": "114.114.114.114/24"
       }
     ],
-    "final": "localDns",
-    "strategy": "ipv4_only"
+    "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "final": "google"
   },
   "inbounds": [
     {
+      "tag": "tun",
       "type": "tun",
-      "address": "172.19.0.1/30",
+      "interface_name": "singbox",
+      "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
+      "stack": "mixed",
       "auto_route": true,
-      "strict_route": true,
       "sniff": true,
-      "endpoint_independent_nat": false,
-      "stack": "system",
+      "strict_route": true,
       "platform": {
         "http_proxy": {
           "enabled": true,
           "server": "127.0.0.1",
-          "server_port": 2080
+          "server_port": 7890
         }
       }
-    },
-    {
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 2080,
-      "sniff": true,
-      "users": []
     }
   ],
   "route": {
@@ -190,25 +193,16 @@
         "outbound": "dns-out"
       },
       {
-        "port": 53,
-        "outbound": "dns-out"
+        "ip_is_private": true,
+        "outbound": "direct"
       },
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
-          },
-          {
-            "network": "udp",
-            "port": 443
-          },
-          {
-            "protocol": "stun"
-          }
-        ],
-        "outbound": "block"
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
       },
       {
         "rule_set": [
