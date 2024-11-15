@@ -467,9 +467,9 @@
       ],
       "filter": [
         {
-          "action": "exclude",
+          "action": "include",
           "keywords": [
-            "倍率"
+            "HongKong|Taiwan|Japan|Singapore"
           ]
         }
       ]
@@ -497,14 +497,6 @@
       "tag": "Select",
       "outbounds": [
         "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "HongKong|Taiwan|Japan|Singapore"
-          ]
-        }
       ]
     },
     {
