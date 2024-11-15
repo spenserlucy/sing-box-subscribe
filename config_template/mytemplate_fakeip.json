@@ -498,12 +498,6 @@
         }
       ]
     },
-     { "type": "selector",
-      "tag": "All Proxy",
-      "outbounds": [
-        "{all}"
-      ]
-    },
     {
       "type": "direct",
       "tag": "direct"
