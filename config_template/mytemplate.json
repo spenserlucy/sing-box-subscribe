@@ -357,7 +357,7 @@
         {
           "action": "include",
           "keywords": [
-            "台湾|TW|Taiwan"
+            "台湾|TW|Taiwan|Premium"
           ]
         }
       ]
@@ -374,7 +374,7 @@
         {
           "action": "include",
           "keywords": [
-            "🇭🇰|香港|HK|Hong"
+            "🇭🇰|香港|HK|Hong|Premium"
           ]
         }
       ]
@@ -392,7 +392,7 @@
         {
           "action": "include",
           "keywords": [
-            "🇸🇬|新加坡|SG|狮城|Singapore"
+            "🇸🇬|新加坡|SG|狮城|Singapore|Premium"
           ]
         }
       ]
@@ -410,7 +410,7 @@
         {
           "action": "include",
           "keywords": [
-            "🇯🇵|日本|JP|Japan"
+            "🇯🇵|日本|JP|Japan|Premium"
           ]
         }
       ]
@@ -428,7 +428,7 @@
         {
           "action": "include",
           "keywords": [
-            " 🇰🇷|KO|韩国|Korea"
+            " 🇰🇷|KO|韩国|Korea|Premium"
           ]
         }
       ]
@@ -446,13 +446,7 @@
         {
           "action": "include",
           "keywords": [
-            "🇺🇸|美国|US|United"
-          ]
-        },
-        {
-          "action": "exclude",
-          "keywords": [
-            "倍率"
+            "🇺🇸|美国|US|United|Premium"
           ]
         }
       ]
@@ -467,7 +461,7 @@
         {
           "action": "include",
           "keywords": [
-             "🇺🇸|美国|US|United"
+             "🇺🇸|美国|US|United|Premium"
           ]
         }
       ]
