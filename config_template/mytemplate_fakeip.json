@@ -195,9 +195,9 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "China3",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/WeChat/WeChat.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/WeChat/WeChat.srs"
       },
       {
         "type": "remote",
