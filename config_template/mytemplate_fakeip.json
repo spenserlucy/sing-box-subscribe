@@ -21,8 +21,9 @@
   "dns": {
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-    }
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
     "servers": [
       {
         "tag": "google",
@@ -312,7 +313,12 @@
         "HK",
         "SG",
         "JP",
-        "KO"
+        "KO",
+        "US",
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -326,7 +332,10 @@
         "JP",
         "KO",
         "US",
-        "USS" 
+        "USS",
+        "MapleCloud",
+        "CTC200",
+        "All Proxy"  
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
