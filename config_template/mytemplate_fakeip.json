@@ -56,14 +56,6 @@
         "server": "local-dns"
       },
       {
-        "clash_mode": "direct",
-        "server": "local"
-      },
-      {
-        "clash_mode": "global",
-        "server": "google"
-      },
-      {
         "rule_set": [
           "BinOKX0",
           "BinOKX1"
