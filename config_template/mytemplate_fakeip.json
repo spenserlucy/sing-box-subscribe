@@ -300,8 +300,7 @@
       "tag": "Proxy",
       "outbounds": [
         "MapleCloud",
-        "CTC200",
-        "All Proxy"
+        "CTC200"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -317,8 +316,7 @@
         "US",
         "USS",
         "MapleCloud",
-        "CTC200",
-        "All Proxy"
+        "CTC200"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -334,8 +332,7 @@
         "US",
         "USS",
         "MapleCloud",
-        "CTC200",
-        "All Proxy"  
+        "CTC200" 
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
