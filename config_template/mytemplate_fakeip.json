@@ -300,7 +300,8 @@
       "tag": "Proxy",
       "outbounds": [
         "MapleCloud",
-        "CTC200"
+        "CTC200",
+        "Select"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -493,6 +494,13 @@
             "倍率"
           ]
         }
+      ]
+    },
+       {
+      "type": "selector",
+      "tag": "Select",
+      "outbounds": [
+        "{all}"
       ]
     },
     {
