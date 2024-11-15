@@ -261,12 +261,6 @@
         "outbound": "direct"
       },
       {
-        "rule_set": [
-          "Ad0"
-        ],
-        "outbound": "block"
-      },
-      {
         "ip_is_private": true,
         "outbound": "direct"
       }
