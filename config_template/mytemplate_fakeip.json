@@ -83,12 +83,6 @@
         "server": "local-dns"
       },
       {
-        "rule_set": [
-          "Ad0"
-        ],
-        "server": "block-dns"
-      },
-      {
         "query_type": [
           "A"
         ],
