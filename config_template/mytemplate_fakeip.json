@@ -473,9 +473,9 @@
       ],
       "filter": [
         {
-          "action": "include",
+          "action": "exclude",
           "keywords": [
-            "Premium"
+            "倍率"
           ]
         }
       ]
