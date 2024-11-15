@@ -249,7 +249,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
-        "All Proxy"
+        "Select"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -263,10 +263,7 @@
         "JP",
         "KO",
         "US",
-        "USS",
-        "MapleCloud",
-        "CTC200",
-        "All Proxy"
+        "USS"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -280,10 +277,7 @@
         "JP",
         "KO",
         "US",
-        "USS",
-        "MapleCloud",
-        "CTC200",
-        "All Proxy"  
+        "USS"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -423,7 +417,7 @@
         {
           "action": "include",
           "keywords": [
-            "Premium"
+            "HongKong|Taiwan|Japan|Singapore"
           ]
         }
       ]
@@ -446,8 +440,9 @@
         }
       ]
     },
-     { "type": "selector",
-      "tag": "All Proxy",
+       {
+      "type": "selector",
+      "tag": "Select",
       "outbounds": [
         "{all}"
       ]
