@@ -211,13 +211,6 @@
         "download_detour": "Proxy",
         "tag": "China4",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ByteDance/ByteDance.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Proxy",
-        "tag": "Ad0",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Advertising/Advertising.srs"
       }
     ],
     "rules": [
