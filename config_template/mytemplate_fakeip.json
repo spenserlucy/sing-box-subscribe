@@ -312,12 +312,7 @@
         "HK",
         "SG",
         "JP",
-        "KO",
-        "US",
-        "USS",
-        "MapleCloud",
-        "CTC200",
-        "All Proxy"
+        "KO"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
@@ -331,10 +326,7 @@
         "JP",
         "KO",
         "US",
-        "USS",
-        "MapleCloud",
-        "CTC200",
-        "All Proxy"  
+        "USS" 
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
