@@ -56,11 +56,6 @@
         "server": "local-dns"
       },
       {
-        "rule_set": "adblock", 
-        "outbound": "adblock" 
-      },
- 
-      {
         "rule_set": [
           "BinOKX0",
           "BinOKX1"
@@ -251,6 +246,10 @@
           "BinOKX1"
         ],
         "outbound": "BinOKX"
+      },
+      {
+        "rule_set": "adblock", 
+        "outbound": "adblock" 
       },
       {
         "rule_set": [
