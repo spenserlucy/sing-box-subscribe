@@ -285,6 +285,12 @@
       },
       {
         "rule_set": [
+          "Media0"
+        ],
+        "outbound": "Media"
+      },
+      {
+        "rule_set": [
           "USRule0",
           "USRule1",
           "USRule2",
@@ -292,12 +298,6 @@
           "USRule4"
         ],
         "outbound": "USRule"
-      },
-      {
-        "rule_set": [
-          "Media0"
-        ],
-        "outbound": "Media"
       },
       {
         "rule_set": [
