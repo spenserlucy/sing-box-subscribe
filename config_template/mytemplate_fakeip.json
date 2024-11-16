@@ -359,6 +359,17 @@
       "default": "US"
     },
     {
+      "tag": "Media",
+      "outbounds": [
+        "MapleCloud",
+        "CTC200",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "MapleCloud"
+    },
+    {
       "type": "urltest",
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -375,17 +386,6 @@
           ]
         }
       ]
-    },
-    {
-      "tag": "Media",
-      "outbounds": [
-        "MapleCloud",
-        "CTC200",
-        "Select"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector",
-      "default": "MapleCloud"
     },
     {
       "type": "urltest",
