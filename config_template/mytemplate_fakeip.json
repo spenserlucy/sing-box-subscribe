@@ -97,8 +97,7 @@
           "China2",
           "China3",
           "China4",
-          "China5",
-          "China6"
+          "China5"
         ],
         "server": "local-dns"
       },
@@ -107,7 +106,11 @@
           "A",
           "AAAA"
         ],
-        "rule_set": "China6",
+        "rule_set": "geosite-geolocation-!cn",
+        "server": "google"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
         "server": "google"
       }
     ],
@@ -248,14 +251,14 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "China5",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
-      },
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
+      } ,
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China6",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
+        "tag": "geosite-geolocation-!cn",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
       }
     ],
     "rules": [
@@ -322,8 +325,7 @@
           "China2",
           "China3",
           "China4",
-          "China5",
-          "China6"
+          "China5"
         ],
         "outbound": "direct"
       },
