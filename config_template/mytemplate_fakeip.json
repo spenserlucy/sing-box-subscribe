@@ -15,11 +15,6 @@
     }
   },
   "dns": {
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
-    },
     "servers": [
       {
         "tag": "google",
@@ -49,7 +44,8 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "local-dns"
+        "server": "local-dns",
+         "disable_cache": true
       },
       {
         "clash_mode": "direct",
@@ -105,7 +101,14 @@
         "server": "fakeip-dns"
       }
     ],
-    "strategy": "prefer_ipv4"
+    "final": "local",
+    "reverse_mapping": true,
+    "independent_cache": true,
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
   },
   "inbounds": [
     {
