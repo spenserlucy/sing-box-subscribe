@@ -86,6 +86,12 @@
       },
       {
         "rule_set": [
+          "Media0"
+        ],
+        "server": "fakeip-dns"
+      },
+      {
+        "rule_set": [
           "China0",
           "China1",
           "China2",
@@ -197,6 +203,13 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
+        "tag": "Media0",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
         "tag": "China0",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/China/China.srs"
       },
@@ -272,6 +285,12 @@
       },
       {
         "rule_set": [
+          "Media0"
+        ],
+        "outbound": "Media"
+      },
+      {
+        "rule_set": [
           "USRule0",
           "USRule1",
           "USRule2",
@@ -338,6 +357,17 @@
       "interrupt_exist_connections": true,
       "type": "selector",
       "default": "US"
+    },
+    {
+      "tag": "Media",
+      "outbounds": [
+        "MapleCloud",
+        "CTC200",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "MapleCloud"
     },
     {
       "type": "urltest",
