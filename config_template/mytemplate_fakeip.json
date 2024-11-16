@@ -86,7 +86,7 @@
       },
       {
         "rule_set": [
-          "Media0"
+          "Video0"
         ],
         "server": "fakeip-dns"
       },
@@ -203,7 +203,7 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "Media0",
+        "tag": "Video0",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
       },
       {
@@ -285,9 +285,9 @@
       },
       {
         "rule_set": [
-          "Media0"
+          "Video0"
         ],
-        "outbound": "Media"
+        "outbound": "Video"
       },
       {
         "rule_set": [
@@ -359,7 +359,7 @@
       "default": "US"
     },
     {
-      "tag": "Media",
+      "tag": "Video",
       "outbounds": [
         "MapleCloud",
         "CTC200",
