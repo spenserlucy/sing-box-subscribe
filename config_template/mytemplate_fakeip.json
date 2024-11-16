@@ -129,72 +129,72 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "BinOKX0",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "BinOKX1",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "USRule0",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "USRule1",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "USRule2",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "USRule3",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "USRule4",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "China0",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/China/China.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/China/China.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxyt",
+        "download_detour": "direct",
         "tag": "China1",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ChinaIPs/ChinaIPs.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ChinaIPs/ChinaIPs.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "China2",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Apple/Apple.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Apple/Apple.srs"
       },
       {
         "type": "remote",
@@ -206,9 +206,9 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "Proxy",
+        "download_detour": "direct",
         "tag": "China4",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ByteDance/ByteDance.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ByteDance/ByteDance.srs"
       }
     ],
     "rules": [
