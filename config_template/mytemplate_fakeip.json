@@ -197,7 +197,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "USRule4",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
       },
       {
         "type": "remote",
@@ -359,17 +359,6 @@
       "default": "US"
     },
     {
-      "tag": "Media",
-      "outbounds": [
-        "MapleCloud",
-        "CTC200",
-        "Select"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector",
-      "default": "MapleCloud"
-    },
-    {
       "type": "urltest",
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -386,6 +375,17 @@
           ]
         }
       ]
+    },
+    {
+      "tag": "Media",
+      "outbounds": [
+        "MapleCloud",
+        "CTC200",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "MapleCloud"
     },
     {
       "type": "urltest",
