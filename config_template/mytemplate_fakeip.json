@@ -211,35 +211,42 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "China0",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/China/China.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
         "tag": "China1",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ChinaIPs/ChinaIPs.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
         "tag": "China2",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Apple/Apple.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
         "tag": "China3",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/WeChat/WeChat.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
         "tag": "China4",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ByteDance/ByteDance.srs"
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "China5",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
       }
     ],
     "rules": [
@@ -305,7 +312,8 @@
           "China1",
           "China2",
           "China3",
-          "China4"
+          "China4",
+          "China5"
         ],
         "outbound": "direct"
       },
