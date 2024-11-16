@@ -101,7 +101,7 @@
         "server": "fakeip-dns"
       }
     ],
-    "final": "local",
+    "final": "local-dns",
     "reverse_mapping": true,
     "independent_cache": true,
     "fakeip": {
