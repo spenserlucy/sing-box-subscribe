@@ -86,12 +86,6 @@
       },
       {
         "rule_set": [
-          "Media0"
-        ],
-        "server": "fakeip-dns"
-      },
-      {
-        "rule_set": [
           "China0",
           "China1",
           "China2",
@@ -203,13 +197,6 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "Media0",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "direct",
         "tag": "China0",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/China/China.srs"
       },
@@ -282,12 +269,6 @@
           "BinOKX1"
         ],
         "outbound": "BinOKX"
-      },
-      {
-        "rule_set": [
-          "Media0"
-        ],
-        "outbound": "Media"
       },
       {
         "rule_set": [
