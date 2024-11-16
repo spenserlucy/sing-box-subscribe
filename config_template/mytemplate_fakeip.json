@@ -327,7 +327,8 @@
         "USS"
       ],
       "interrupt_exist_connections": true,
-      "type": "selector"
+      "type": "selector",
+      "default": "TW"
     },
     {
       "tag": "USRule",
@@ -341,7 +342,8 @@
         "USS"
       ],
       "interrupt_exist_connections": true,
-      "type": "selector"
+      "type": "selector",
+      "default": "US"
     },
     {
       "tag": "Media",
@@ -351,7 +353,8 @@
         "Select"
       ],
       "interrupt_exist_connections": true,
-      "type": "selector"
+      "type": "selector",
+      "default": "MapleCloud"
     },
     {
       "type": "urltest",
