@@ -332,10 +332,13 @@
       {
         "ip_is_private": true,
         "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "Proxy"
       }
     ],
-    "auto_detect_interface": true,
-    "final": "Proxy"
+    "auto_detect_interface": true
   },
  "outbounds": [
  {
