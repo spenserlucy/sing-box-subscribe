@@ -60,6 +60,10 @@
         "server": "google"
       },
       {
+         "domain_keyword": "ntp",
+         "server": "local-dns"
+      },
+      {
         "rule_set": [
           "BinOKX0",
           "BinOKX1"
@@ -88,7 +92,8 @@
       },
       {
         "query_type": [
-          "A"
+          "A",
+          "AAAA"
         ],
         "rewrite_ttl": 1,
         "server": "fakeip-dns"
@@ -219,6 +224,14 @@
       {
         "port": 53,
         "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "Proxy"
       },
       {
         "type": "logical",
