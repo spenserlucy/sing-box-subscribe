@@ -52,7 +52,7 @@
       },
       {
         "clash_mode": "direct",
-        "server": "local"
+        "server": "local-dns"
       },
       {
         "clash_mode": "global",
