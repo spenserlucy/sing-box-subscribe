@@ -346,13 +346,9 @@
     {
       "tag": "Media",
       "outbounds": [
-        "TW",
-        "HK",
-        "SG",
-        "JP",
-        "KO",
-        "US",
-        "USS"
+        "MapleCloud",
+        "CTC200",
+        "Select"
       ],
       "interrupt_exist_connections": true,
       "type": "selector"
