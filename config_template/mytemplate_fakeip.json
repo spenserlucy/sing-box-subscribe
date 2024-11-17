@@ -336,10 +336,10 @@
         "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
-      },
-       "final": "Proxy",
-       "auto_detect_interface": true
-    ]
+      }
+    ],
+    "final": "Proxy",
+    "auto_detect_interface": true
   },
  "outbounds": [
  {
