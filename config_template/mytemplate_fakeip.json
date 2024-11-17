@@ -154,6 +154,83 @@
     }
   ],
   "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "Proxy"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "rule_set": [
+          "BinOKX0",
+          "BinOKX1"
+        ],
+        "outbound": "BinOKX"
+      },
+      {
+        "rule_set": [
+          "Video0"
+        ],
+        "outbound": "Video"
+      },
+      {
+        "rule_set": [
+          "USRule0",
+          "USRule1",
+          "USRule2",
+          "USRule3",
+          "USRule4"
+        ],
+        "outbound": "USRule"
+      },
+      {
+        "rule_set": [
+          "China0",
+          "China1",
+          "China2",
+          "China3",
+          "China4",
+          "China5"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "Proxy"
+      }
+    ],
     "rule_set": [
       {
         "type": "remote",
@@ -259,83 +336,6 @@
         "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
-      }
-    ],
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "dns-out"
-      },
-      {
-        "port": 53,
-        "outbound": "dns-out"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "Proxy"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
-          },
-          {
-            "network": "udp",
-            "port": 443
-          },
-          {
-            "protocol": "stun"
-          }
-        ],
-        "outbound": "block"
-      },
-      {
-        "rule_set": [
-          "BinOKX0",
-          "BinOKX1"
-        ],
-        "outbound": "BinOKX"
-      },
-      {
-        "rule_set": [
-          "Video0"
-        ],
-        "outbound": "Video"
-      },
-      {
-        "rule_set": [
-          "USRule0",
-          "USRule1",
-          "USRule2",
-          "USRule3",
-          "USRule4"
-        ],
-        "outbound": "USRule"
-      },
-      {
-        "rule_set": [
-          "China0",
-          "China1",
-          "China2",
-          "China3",
-          "China4",
-          "China5"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "Proxy"
       }, 
       "final": "Proxy",
       "auto_detect_interface": true
