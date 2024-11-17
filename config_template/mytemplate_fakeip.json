@@ -252,7 +252,7 @@
         "download_detour": "direct",
         "tag": "China5",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
-      } ,
+      },
       {
         "type": "remote",
         "format": "binary",
@@ -260,7 +260,7 @@
         "tag": "geosite-geolocation-!cn",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
       }, 
-      "final": "fakeip-dns",
+      "final": "Proxy",
       "auto_detect_interface": true
     ],
     "rules": [
