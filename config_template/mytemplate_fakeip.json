@@ -340,7 +340,7 @@
     ],
     "final": "Proxy",
     "auto_detect_interface": true
-  },
+ },
  "outbounds": [
  {
       "tag": "Proxy",
