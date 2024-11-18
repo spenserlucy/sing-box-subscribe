@@ -33,6 +33,10 @@
         "tag": "local-dns",
         "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
       }
     ],
     "rules": [
@@ -129,6 +133,19 @@
   "route": {
     "rules": [
       {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "outbound": "dns-out"
+      },
+      {
         "protocol": "dns",
         "outbound": "dns-out"
       },
@@ -143,6 +160,20 @@
       {
         "clash_mode": "Global",
         "outbound": "Proxy"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          }
+        ],
+        "outbound": "block"
       },
       {
         "rule_set": [
@@ -520,6 +551,10 @@
     {
       "type": "dns",
       "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
     }
   ]
 }
