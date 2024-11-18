@@ -42,10 +42,6 @@
         "detour": "direct"
       },
       {
-        "tag": "fakeip-dns",
-        "address": "fakeip"
-      },
-      {
         "tag": "block-dns",
         "address": "rcode://success"
       }
@@ -73,7 +69,7 @@
           "BinOKX0",
           "BinOKX1"
         ],
-        "server": "fakeip-dns"
+        "server": "dns"
       },
       {
         "rule_set": [
@@ -83,13 +79,13 @@
           "USRule3",
           "USRule4"
         ],
-        "server": "fakeip-dns"
+        "server": "dns"
       },
       {
         "rule_set": [
           "Video0"
         ],
-        "server": "fakeip-dns"
+        "server": "dns"
       },
       {
         "rule_set": [
