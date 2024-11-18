@@ -107,11 +107,11 @@
           "AAAA"
         ],
         "rule_set": "geosite-geolocation-!cn",
-        "server": "fakeip-dns"
+        "server": "google"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "server": "fakeip-dns"
+        "server": "google"
       }
     ],
     "final": "local-dns",
@@ -155,10 +155,6 @@
   ],
   "route": {
     "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "dns-out"
-      },
       {
         "port": 53,
         "outbound": "dns-out"
@@ -220,10 +216,6 @@
           "China4",
           "China5"
         ],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
         "outbound": "direct"
       },
       {
