@@ -23,8 +23,10 @@
     "servers": [
       {
         "tag": "google",
-        "address": "tls://8.8.8.8",
-        "detour": "Proxy",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "local-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "client_subnet": "1.0.1.0"
       },
       {
@@ -75,8 +77,7 @@
           "China1",
           "China2",
           "China3",
-          "China4",
-          "China5"
+          "China4"
         ],
         "server": "local-dns"
       },
@@ -89,7 +90,7 @@
             "invert": true
           },
           {
-            "rule_set": "China2"
+            "rule_set": "geoip-cn"
           }
         ],
         "server": "google",
@@ -97,6 +98,9 @@
       }
     ],
     "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
     "final": "google"
   },
   "inbounds": [
@@ -125,17 +129,12 @@
   "route": {
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ],
+        "protocol": "dns",
         "outbound": "dns-out"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
       },
       {
         "clash_mode": "Direct",
@@ -174,8 +173,7 @@
           "China1",
           "China2",
           "China3",
-          "China4",
-          "China5"
+          "China4"
         ],
         "outbound": "direct"
       },
@@ -257,35 +255,35 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "China1",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "direct",
-        "tag": "China2",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China3",
+        "tag": "China2",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China4",
+        "tag": "China3",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China5",
+        "tag": "China4",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geoip-cn",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
       },
       {
         "type": "remote",
