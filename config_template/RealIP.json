@@ -20,6 +20,7 @@
     }
   },
   "dns": {
+    "realip": true,
     "servers": [
       {
         "tag": "google",
@@ -150,8 +151,30 @@
         "outbound": "dns-out"
       },
       {
-        "ip_is_private": true,
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "ip_is_private": true
+          },
+          {
+            "domain": "geosite:cn"  // 根据需要添加规则，如国内流量走直连
+          }
+        ],
         "outbound": "direct"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "outboundTag": "dns-out"
+          }
+        ],
+        "outbound": "dns-out"
       },
       {
         "clash_mode": "Direct",
