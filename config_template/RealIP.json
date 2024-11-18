@@ -69,7 +69,7 @@
         "rule_set": [
           "Video0"
         ],
-        "server": "dgoogle"
+        "server": "google"
       },
       {
         "rule_set": [
@@ -255,7 +255,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "China1",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-cn.srs"
+        "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
       },
       {
         "type": "remote",
@@ -290,7 +290,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs"
+        "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
       }
     ],
     "auto_detect_interface": true,
