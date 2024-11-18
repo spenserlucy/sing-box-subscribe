@@ -25,7 +25,8 @@
         "tag": "google",
         "address": "tls://8.8.8.8",
         "address_strategy": "prefer_ipv4",
-        "detour": "Proxy"
+        "detour": "Proxy",
+        "client_subnet": "1.0.1.0"
       },
       {
         "tag": "fallback",
