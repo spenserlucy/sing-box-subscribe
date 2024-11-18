@@ -29,7 +29,7 @@
       },
       {
         "tag": "local-dns",
-        "address": "223.5.5.5",
+        "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
       }
     ],
@@ -115,7 +115,7 @@
       "strict_route": true,
       "platform": {
         "http_proxy": {
-          "enabled": true,
+          "enabled": false,
           "server": "127.0.0.1",
           "server_port": 7890
         }
