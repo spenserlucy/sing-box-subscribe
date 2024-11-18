@@ -24,7 +24,7 @@
       {
         "tag": "google",
         "address": "tls://8.8.8.8",
-        "address_strategy": "prefer_ipv4",
+        "address_strategy": "ipv4_only",
         "detour": "Proxy",
         "client_subnet": "1.0.1.0"
       },
@@ -32,13 +32,13 @@
         "tag": "fallback",
         "address": "8.8.8.8",
         "address_resolver": "google",
-        "address_strategy": "prefer_ipv4",
+        "address_strategy": "ipv4_only",
         "detour": "Proxy"
       },
       {
         "tag": "local-dns",
         "address": "223.5.5.5",
-        "address_strategy": "prefer_ipv4",
+        "address_strategy": "ipv4_only",
         "detour": "direct"
       },
       {
@@ -115,43 +115,30 @@
         "server": "google"
       }
     ],
-    "final": "google",
-    "reverse_mapping": true,
-    "independent_cache": true,
-    "fakeip": {
-        "enabled": true,
-        "inet4_range": "198.18.0.0/15",
-        "inet6_range": "fc00::/18"
-    }
+    "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "final": "google"
   },
   "inbounds": [
     {
       "tag": "tun",
       "type": "tun",
-      "address": [
-        "172.19.0.0/30",
-        "fdfe:dcba:9876::0/126"
-      ],
+      "interface_name": "singbox",
+      "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
-      "stack": "system",
+      "stack": "mixed",
       "auto_route": true,
-      "strict_route": true,
       "sniff": true,
+      "strict_route": true,
       "platform": {
         "http_proxy": {
-          "enabled": false,
+          "enabled": true,
           "server": "127.0.0.1",
           "server_port": 7890
         }
       }
-    },
-    {
-      "tag": "mixed",
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true,
-      "domain_strategy": "prefer_ipv4"
     }
   ],
   "route": {
@@ -161,8 +148,8 @@
         "outbound": "dns-out"
       },
       {
-        "port": 53,
-        "outbound": "dns-out"
+        "ip_is_private": true,
+        "outbound": "direct"
       },
       {
         "clash_mode": "Direct",
