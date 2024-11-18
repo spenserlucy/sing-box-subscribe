@@ -29,28 +29,16 @@
         "client_subnet": "1.0.1.0"
       },
       {
-        "tag": "fallback",
-        "address": "8.8.8.8",
-        "address_resolver": "google",
-        "address_strategy": "ipv4_only",
-        "detour": "Proxy"
-      },
-      {
         "tag": "local-dns",
         "address": "223.5.5.5",
         "address_strategy": "ipv4_only",
         "detour": "direct"
-      },
-      {
-        "tag": "block-dns",
-        "address": "rcode://success"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "local-dns",
-         "disable_cache": true
+        "server": "local-dns"
       },
       {
         "clash_mode": "Direct",
@@ -61,15 +49,11 @@
         "server": "google"
       },
       {
-         "domain_keyword": "ntp",
-         "server": "local-dns"
-      },
-      {
         "rule_set": [
           "BinOKX0",
           "BinOKX1"
         ],
-        "server": "dns"
+        "server": "google"
       },
       {
         "rule_set": [
@@ -79,13 +63,13 @@
           "USRule3",
           "USRule4"
         ],
-        "server": "dns"
+        "server": "google"
       },
       {
         "rule_set": [
           "Video0"
         ],
-        "server": "dns"
+        "server": "dgoogle"
       },
       {
         "rule_set": [
@@ -545,10 +529,6 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
     },
     {
       "type": "dns",
