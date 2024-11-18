@@ -107,11 +107,11 @@
           "AAAA"
         ],
         "rule_set": "geosite-geolocation-!cn",
-        "server": "google"
+        "server": "fakeip-dns"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "server": "google"
+        "server": "fakeip-dns"
       }
     ],
     "final": "local-dns",
