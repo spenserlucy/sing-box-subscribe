@@ -149,7 +149,7 @@
   "route": {
     "rules": [
       {
-        "inbound": "dns-in",
+        "inbound": "socks-in",
         "outbound": "out-proxy"
       },
       {
