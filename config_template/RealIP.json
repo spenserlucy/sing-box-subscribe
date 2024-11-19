@@ -67,34 +67,35 @@
       },
       {
         "rule_set": [
-          "BinOKX0",
-          "BinOKX1"
+          "Binance",
+          "OKX"
         ],
         "server": "google"
       },
       {
         "rule_set": [
-          "USRule0",
-          "USRule1",
-          "USRule2",
-          "USRule3",
-          "USRule4"
+          "PayPal",
+          "OpenAI",
+          "Gemini",
+          "GoogleVoice",
+          "GoogleSearch"
         ],
         "server": "google"
       },
       {
         "rule_set": [
-          "Video0"
+          "YouTube"
         ],
         "server": "google"
       },
       {
         "rule_set": [
-          "China0",
+          "ChinaMax",
           "geosite-cn",
-          "China2",
-          "China3",
-          "China4"
+          "geosite-category-games@cn",
+          "geosite-private",
+          "geosite-apple@cn",
+          "geoip-cn"
         ],
         "server": "local-dns"
       },
@@ -205,34 +206,34 @@
       },
       {
         "rule_set": [
-          "BinOKX0",
-          "BinOKX1"
+          "Binance",
+          "OKX"
         ],
         "outbound": "BinOKX"
       },
       {
         "rule_set": [
-          "Video0"
+          "YouTube"
         ],
         "outbound": "Video"
       },
       {
         "rule_set": [
-          "USRule0",
-          "USRule1",
-          "USRule2",
-          "USRule3",
-          "USRule4"
+          "PayPal",
+          "OpenAI",
+          "Gemini",
+          "GoogleVoice",
+          "GoogleSearch"
         ],
         "outbound": "USRule"
       },
       {
         "rule_set": [
-          "China0",
+          "ChinaMax",
           "geosite-cn",
-          "China2",
-          "China3",
-          "China4"
+          "geosite-category-games@cn",
+          "geosite-private",
+          "geosite-apple@cn"
         ],
         "outbound": "direct"
       },
@@ -264,63 +265,72 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "BinOKX0",
+        "tag": "Binance",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "BinOKX1",
+        "tag": "OKX",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "USRule0",
+        "tag": "PayPal",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "USRule1",
+        "tag": "OpenAI",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "USRule2",
+        "tag": "Gemini",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "USRule3",
+        "tag": "GoogleVoice",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "USRule4",
+        "tag": "GoogleSearch",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "Video0",
+        "tag": "YouTube",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China0",
+        "tag": "ChinaMax",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
       },
       {
@@ -328,27 +338,31 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-cn",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China2",
+        "tag": "geosite-category-games@cn",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China3",
+        "tag": "geosite-private",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
       },
       {
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China4",
+        "tag": "geosite-apple@cn",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
       },
       {
@@ -356,6 +370,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geoip-cn",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
       },
       {
@@ -363,6 +378,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
+        "update_interval": "10d",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
       },
       {
