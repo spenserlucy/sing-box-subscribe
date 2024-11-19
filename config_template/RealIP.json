@@ -24,10 +24,6 @@
       {
         "tag": "google",
         "address": "https://dns.google/dns-query",
-        "realip": {
-          "enabled": true,
-          "ipHeader": "X-Real-IP"
-        },
         "address_resolver": "local-dns",
         "address_strategy": "ipv4_only",
         "strategy": "ipv4_only",
@@ -46,7 +42,7 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "local-dns"
+        "server": "google"
       },
       {
         "clash_mode": "Direct",
@@ -123,10 +119,6 @@
       "stack": "system",
       "auto_route": true,
       "sniff": true,
-      "realip": {
-        "enabled": true,
-        "ipHeader": "X-Real-IP"
-      },
       "sniff_override_destination": true,
       "strict_route": true,
       "platform": {
