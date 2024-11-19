@@ -24,6 +24,10 @@
       {
         "tag": "google",
         "address": "https://dns.google/dns-query",
+        "realip": {
+          "enabled": true,
+          "ipHeader": "X-Real-IP"
+        },
         "address_resolver": "local-dns",
         "address_strategy": "ipv4_only",
         "strategy": "ipv4_only",
@@ -37,11 +41,7 @@
       {
         "tag": "block",
         "address": "rcode://success"
-      },
-  "realip": {
-    "enabled": true,
-    "ipHeader": "X-Real-IP"
-  }
+      }
     ],
     "rules": [
       {
