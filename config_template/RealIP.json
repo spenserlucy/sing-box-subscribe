@@ -91,7 +91,7 @@
       {
         "rule_set": [
           "China0",
-          "China1",
+          "geosite-cn",
           "China2",
           "China3",
           "China4"
@@ -99,25 +99,22 @@
         "server": "local-dns"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-geolocation-!cn",
-            "invert": true
-          },
-          {
-            "rule_set": "geoip-cn"
-          }
+        "rule_set":"geosite-gfw",
+        "server": "google"
+      },
+      {
+        "rule_set": "geosite-ai",
+        "server": "google"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-cn"
         ],
-        "server": "google",
-        "client_subnet": "114.114.114.114/24"
+        "server": "local-dns"
       }
     ],
+    "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
-    "disable_cache": false,
-    "disable_expire": false,
-    "independent_cache": false,
     "final": "google"
   },
   "inbounds": [
@@ -184,7 +181,7 @@
             "ip_is_private": true
           },
           {
-            "domain": "China1"
+            "domain": "geosite-cn"
           }
         ],
         "outbound": "direct"
@@ -209,20 +206,6 @@
       {
         "clash_mode": "Global",
         "outbound": "Proxy"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
-          },
-          {
-            "network": "udp",
-            "port": 443
-          }
-        ],
-        "outbound": "block"
       },
       {
         "rule_set": [
@@ -250,7 +233,7 @@
       {
         "rule_set": [
           "China0",
-          "China1",
+          "geosite-cn",
           "China2",
           "China3",
           "China4"
@@ -262,7 +245,21 @@
         "outbound": "direct"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
+        "rule_set": "geosite-gfw",
+        "outbound": "Proxy"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn"
+          },
+          {
+            "rule_set": "geoip-cn",
+            "invert": true
+          }
+        ],
         "outbound": "Proxy"
       }
     ],
@@ -334,7 +331,7 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "direct",
-        "tag": "China1",
+        "tag": "geosite-cn",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
       },
       {
@@ -371,6 +368,22 @@
         "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
+      },
+      {
+        "tag": "geosite-gfw",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
+        "update_interval": "10d",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
+        "update_interval": "10d",
+        "download_detour": "direct"
       }
     ],
     "auto_detect_interface": true,
