@@ -158,7 +158,7 @@
             "ip_is_private": true
           },
           {
-            "domain": "geosite:cn"
+            "domain": "China1"
           }
         ],
         "outbound": "direct"
