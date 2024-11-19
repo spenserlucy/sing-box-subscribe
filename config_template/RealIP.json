@@ -158,7 +158,7 @@
             "ip_is_private": true
           },
           {
-            "domain": "geosite:cn"  // 根据需要添加规则，如国内流量走直连
+            "domain": "geosite:cn"
           }
         ],
         "outbound": "direct"
