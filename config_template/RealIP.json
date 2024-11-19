@@ -110,13 +110,6 @@
     "strategy": "ipv4_only",
     "final": "google"
   },
-  "ntp": {
-    "enabled": true,
-    "server": "time.apple.com",
-    "server_port": 123,
-    "interval": "30m0s",
-    "detour": "out-direct"
-  },
   "inbounds": [
     {
       "tag": "tun-in",
