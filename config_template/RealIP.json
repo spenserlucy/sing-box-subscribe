@@ -42,7 +42,7 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "google"
+        "server": "local-dns"
       },
       {
         "outbound": "google",
