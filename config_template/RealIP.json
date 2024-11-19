@@ -45,6 +45,10 @@
         "server": "google"
       },
       {
+        "outbound": "google",
+        "server": "google"
+      },
+      {
         "clash_mode": "Direct",
         "server": "local-dns"
       },
