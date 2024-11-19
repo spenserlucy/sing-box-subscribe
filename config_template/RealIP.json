@@ -34,7 +34,7 @@
       },
       {
         "tag": "google",
-        "address": "https://dns.google/dns-query",
+        "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
         "address_strategy": "ipv4_only",
         "client_subnet": "1.0.1.0"
