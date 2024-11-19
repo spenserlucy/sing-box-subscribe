@@ -104,7 +104,7 @@
             "rule_set": "geoip-cn"
           }
         ],
-        "server": "google",
+        "server": "local-dns",
         "client_subnet": "114.114.114.114/24"
       }
     ],
