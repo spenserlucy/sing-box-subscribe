@@ -179,14 +179,14 @@
       },
       {
         "rule_set": [
-          "BinOKX0",
-          "BinOKX1"
+          "Binancd",
+          "OKX"
         ],
         "outbound": "BinOKX"
       },
       {
         "rule_set": [
-          "Video0"
+          "YouTube"
         ],
         "outbound": "Video"
       },
