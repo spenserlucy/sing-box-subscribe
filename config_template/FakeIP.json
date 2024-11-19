@@ -179,7 +179,7 @@
       },
       {
         "rule_set": [
-          "Binancd",
+          "Binance",
           "OKX"
         ],
         "outbound": "BinOKX"
