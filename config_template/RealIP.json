@@ -614,6 +614,26 @@
     {
       "type": "block",
       "tag": "block"
+    },
+    {
+      "tag": "Proxy",
+      "type": "selector",
+      "outbounds": [
+        "proxy-overtls"
+      ],
+      "default": "proxy-overtls"
+    },
+    {
+      "type": "socks",
+      "tag": "proxy-overtls",
+      "server": "127.0.0.1",
+      "server_port": 765,
+      "version": "5",
+      "network": "tcp",
+      "udp_over_tcp": {
+        "enabled": false,
+        "version": 2
+      }
     }
   ]
 }
