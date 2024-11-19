@@ -41,7 +41,7 @@
       },
       {
         "tag": "block",
-        "address": "rcode://name_error"
+        "address": "rcode://refused"
       }
     ],
     "rules": [
