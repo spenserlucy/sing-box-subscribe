@@ -95,17 +95,15 @@
       {
         "rule_set": [
           "geoip-cn"
-      ],
-      }
-         "server": "local-dns"
+        ],
+         "server": "local-dns"   
       },
       {
          "rule_set": [
            "geosite-geolocation-!cn"
-     ],
-     }
-          "server": "google"
-    }
+         ],
+         "server": "google"
+       }
     ],
     "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
