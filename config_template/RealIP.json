@@ -37,7 +37,7 @@
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
         "address_strategy": "ipv4_only",
-        "client_subnet": "1.0.1.0"
+        "detour": "out-proxy"
       },
       {
         "tag": "block",
@@ -151,7 +151,7 @@
     "rules": [
       {
         "inbound": "dns-in",
-        "outbound": "dns-out"
+        "outbound": "out-proxy"
       },
       {
         "type": "logical",
@@ -164,15 +164,15 @@
             "port": 53
           }
         ],
-        "outbound": "dns-out"
+        "outbound": "out-proxy"
       },
       {
         "protocol": "dns",
-        "outbound": "dns-out"
+        "outbound": "out-proxy"
       },
       {
         "rule_set": "geosite-gfw",
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       },
       {
         "type": "logical",
@@ -186,7 +186,7 @@
             "invert": true
           }
         ],
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       },
       {
         "protocol": "quic",
@@ -198,7 +198,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       },
       {
         "rule_set": [
@@ -241,7 +241,7 @@
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       }
   },
     ],
@@ -384,7 +384,7 @@
       }
     ],
     "auto_detect_interface": true,
-    "final": "Proxy"
+    "final": "out-proxy"
  },
  "outbounds": [
  {
@@ -609,7 +609,7 @@
     },
     {
       "type": "dns",
-      "tag": "dns-out"
+      "tag": "out-proxy"
     },
     {
       "type": "block",
