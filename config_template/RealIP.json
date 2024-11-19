@@ -68,23 +68,15 @@
       {
         "rule_set": [
           "Binance",
-          "OKX"
-        ],
-        "server": "google"
-      },
-      {
-        "rule_set": [
+          "OKX",
           "PayPal",
           "OpenAI",
           "Gemini",
           "GoogleVoice",
-          "GoogleSearch"
-        ],
-        "server": "google"
-      },
-      {
-        "rule_set": [
-          "YouTube"
+          "GoogleSearch",
+          "geosite-gfw",
+          "YouTube",
+          "geosite-geolocation-!cn"
         ],
         "server": "google"
       },
@@ -93,19 +85,10 @@
           "ChinaMax",
           "geosite-cn",
           "geosite-category-games@cn",
+          "geosite-geolocation-cn",
           "geosite-private",
           "geosite-apple@cn",
           "geoip-cn"
-        ],
-        "server": "local-dns"
-      },
-      {
-        "rule_set":"geosite-gfw",
-        "server": "google"
-      },
-      {
-        "rule_set": [
-          "geosite-geolocation-cn"
         ],
         "server": "local-dns"
       }
