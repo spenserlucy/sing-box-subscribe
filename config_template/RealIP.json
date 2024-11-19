@@ -37,7 +37,11 @@
       {
         "tag": "block",
         "address": "rcode://success"
-      }
+      },
+  "realip": {
+    "enabled": true,
+    "ipHeader": "X-Real-IP"
+  }
     ],
     "rules": [
       {
