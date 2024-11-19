@@ -231,7 +231,6 @@
         "rule_set": "geosite-geolocation-!cn",
         "outbound": "Proxy"
       }
-  },
     ],
     "rule_set": [
       {
