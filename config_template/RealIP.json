@@ -94,8 +94,7 @@
           "China1",
           "China2",
           "China3",
-          "China4",
-          "geosite-geolocation-cn"
+          "China4"
         ],
         "server": "local-dns"
       },
@@ -616,7 +615,7 @@
       "tag": "block"
     },
     {
-      "tag": "Proxy",
+      "tag": "out-proxy",
       "type": "selector",
       "outbounds": [
         "proxy-overtls"
