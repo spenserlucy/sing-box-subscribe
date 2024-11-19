@@ -103,10 +103,6 @@
         "server": "google"
       },
       {
-        "rule_set": "geosite-ai",
-        "server": "google"
-      },
-      {
         "rule_set": [
           "geosite-geolocation-cn"
         ],
