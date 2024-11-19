@@ -15,7 +15,7 @@
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "https://ghp.ci/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "out-direct",
+      "external_ui_download_detour": "direct",
       "default_mode": "Rule"
     }
   },
@@ -24,30 +24,30 @@
       {
         "tag": "dns_resolver-tx",
         "address": "119.29.29.29",
-        "detour": "out-direct"
+        "detour": "direct"
       },
       {
         "tag": "local-dns",
         "address": "https://120.53.53.53/dns-query",
         "address_resolver": "dns_resolver-tx",
-        "detour": "out-direct"
+        "detour": "direct"
       },
       {
         "tag": "google",
-        "address": "https://162.159.36.1/dns-query",
+        "address": "https://dns.google/dns-query",
         "address_resolver": "dns_resolver-tx",
         "address_strategy": "ipv4_only",
-        "detour": "Proxy"
+        "client_subnet": "1.0.1.0"
       },
       {
         "tag": "block",
-        "address": "rcode://refused"
+        "address": "rcode://name_error"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "dns_resolver-tx"
+        "server": "local-dns"
       },
       {
         "query_type": "HTTPS",
@@ -99,18 +99,34 @@
         "server": "local-dns"
       },
       {
-        "rule_set": [
-          "geosite-cn",
-          "geosite-geolocation-cn"
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
         ],
-        "server": "dns-direct-tx"
+        "server": "google",
+        "client_subnet": "114.114.114.114/24"
       }
     ],
-    "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
     "final": "google"
   },
   "inbounds": [
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "::",
+      "listen_port": 5333
+    },
     {
       "tag": "tun-in",
       "type": "tun",
@@ -131,19 +147,13 @@
           "server_port": 7890
         }
       }
-    },
-    {
-      "tag": "socks-in",
-      "type": "socks",
-      "listen": "::",
-      "listen_port": 5319
     }
   ],
   "route": {
     "rules": [
       {
-        "inbound": "socks-in",
-        "outbound": "Proxy"
+        "inbound": "dns-in",
+        "outbound": "dns-out"
       },
       {
         "type": "logical",
@@ -156,37 +166,63 @@
             "port": 53
           }
         ],
-        "outbound": "out-dns"
+        "outbound": "dns-out"
       },
       {
-        "rule_set": "geosite-gfw",
-        "outbound": "Proxy"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-geolocation-!cn"
-          },
-          {
-            "rule_set": "geoip-cn",
-            "invert": true
-          }
-        ],
-        "outbound": "Proxy"
+        "protocol": "dns",
+        "outbound": "dns-out"
       },
       {
         "protocol": "quic",
         "outbound": "block"
       },
       {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "ip_is_private": true
+          },
+          {
+            "domain": "China1"
+          }
+        ],
+        "outbound": "direct"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "outboundTag": "dns-out"
+          }
+        ],
+        "outbound": "dns-out"
+      },
+      {
         "clash_mode": "Direct",
-        "outbound": "out-direct"
+        "outbound": "direct"
       },
       {
         "clash_mode": "Global",
         "outbound": "Proxy"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          }
+        ],
+        "outbound": "block"
       },
       {
         "rule_set": [
@@ -217,15 +253,13 @@
           "China1",
           "China2",
           "China3",
-          "China4",
-          "geosite-geolocation-cn",
-          "geosite-cn"
+          "China4"
         ],
-        "outbound": "out-direct"
+        "outbound": "direct"
       },
       {
         "ip_is_private": true,
-        "outbound": "out-direct"
+        "outbound": "direct"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
@@ -236,138 +270,107 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "BinOKX0",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "BinOKX1",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "USRule0",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "USRule1",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "USRule2",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "USRule3",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "USRule4",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "Video0",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "China0",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "China1",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "China2",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "China3",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "China4",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "geoip-cn",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "out-direct",
+        "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
-        "update_interval": "10d",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
-      },
-      {
-        "tag": "geosite-geolocation-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://ghp.ci/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
-        "update_interval": "10d",
-        "download_detour": "out-direct"
-      },
-      {
-        "tag": "geosite-gfw",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://ghp.ci/https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
-        "update_interval": "10d",
-        "download_detour": "out-direct"
       }
     ],
     "auto_detect_interface": true,
@@ -592,15 +595,15 @@
     },
     {
       "type": "direct",
-      "tag": "out-direct"
+      "tag": "direct"
     },
     {
       "type": "dns",
-      "tag": "out-dns"
+      "tag": "dns-out"
     },
     {
       "type": "block",
       "tag": "block"
-    },
+    }
   ]
 }
