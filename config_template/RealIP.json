@@ -163,11 +163,7 @@
             "port": 53
           }
         ],
-        "outbound": "out-proxy"
-      },
-      {
-        "protocol": "dns",
-        "outbound": "out-proxy"
+        "outbound": "out-dns"
       },
       {
         "rule_set": "geosite-gfw",
@@ -608,7 +604,7 @@
     },
     {
       "type": "dns",
-      "tag": "out-proxy"
+      "tag": "out-dns"
     },
     {
       "type": "block",
