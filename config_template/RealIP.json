@@ -22,16 +22,16 @@
   "dns": {
     "servers": [
       {
+        "tag": "local-dns",
+        "address": "https://120.53.53.53/dns-query",
+        "detour": "direct"
+      },
+      {
         "tag": "google",
         "address": "https://dns.google/dns-query",
         "address_resolver": "local-dns",
         "address_strategy": "ipv4_only",
         "client_subnet": "1.0.1.0"
-      },
-      {
-        "tag": "local-dns",
-        "address": "https://120.53.53.53/dns-query",
-        "detour": "direct"
       },
       {
         "tag": "block",
