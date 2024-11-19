@@ -37,7 +37,7 @@
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
         "address_strategy": "ipv4_only",
-        "detour": "out-proxy"
+        "detour": "Proxy"
       },
       {
         "tag": "block",
@@ -150,7 +150,7 @@
     "rules": [
       {
         "inbound": "socks-in",
-        "outbound": "out-proxy"
+        "outbound": "Proxy"
       },
       {
         "type": "logical",
@@ -167,7 +167,7 @@
       },
       {
         "rule_set": "geosite-gfw",
-        "outbound": "out-proxy"
+        "outbound": "Proxy"
       },
       {
         "type": "logical",
@@ -181,7 +181,7 @@
             "invert": true
           }
         ],
-        "outbound": "out-proxy"
+        "outbound": "Proxy"
       },
       {
         "protocol": "quic",
@@ -193,7 +193,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "out-proxy"
+        "outbound": "Proxy"
       },
       {
         "rule_set": [
@@ -236,7 +236,7 @@
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "outbound": "out-proxy"
+        "outbound": "Proxy"
       }
   },
     ],
@@ -379,7 +379,7 @@
       }
     ],
     "auto_detect_interface": true,
-    "final": "out-proxy"
+    "final": "Proxy"
  },
  "outbounds": [
  {
@@ -610,25 +610,5 @@
       "type": "block",
       "tag": "block"
     },
-    {
-      "tag": "out-proxy",
-      "type": "selector",
-      "outbounds": [
-        "proxy-overtls"
-      ],
-      "default": "proxy-overtls"
-    },
-    {
-      "type": "socks",
-      "tag": "proxy-overtls",
-      "server": "127.0.0.1",
-      "server_port": 765,
-      "version": "5",
-      "network": "tcp",
-      "udp_over_tcp": {
-        "enabled": false,
-        "version": 2
-      }
-    }
   ]
 }
