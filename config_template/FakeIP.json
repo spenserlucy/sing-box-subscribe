@@ -235,7 +235,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "Binance",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
       },
       {
@@ -243,7 +243,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "OKX",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
       },
       {
@@ -251,7 +251,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "PayPal",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
       },
       {
@@ -259,7 +259,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "OpenAI",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
       },
       {
@@ -267,7 +267,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "Gemini",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
       },
       {
@@ -275,7 +275,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "GoogleVoice",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
       },
       {
@@ -283,7 +283,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "GoogleSearch",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
       },
       {
@@ -291,7 +291,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "YouTube",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
       },
       {
@@ -299,7 +299,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "ChinaMax",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
       },
       {
@@ -307,7 +307,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-cn",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
       },
       {
@@ -315,7 +315,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-category-games@cn",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
       },
       {
@@ -323,7 +323,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-private",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
       },
       {
@@ -331,7 +331,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-apple@cn",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
       },
       {
@@ -339,7 +339,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geoip-cn",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
       },
       {
@@ -347,7 +347,7 @@
         "format": "binary",
         "download_detour": "direct",
         "tag": "geosite-geolocation-!cn",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
       },
       {
@@ -355,7 +355,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://ghp.ci/https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "download_detour": "direct"
       },
       {
@@ -363,7 +363,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://ghp.ci/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
-        "update_interval": "10d",
+        "update_interval": "1d",
         "download_detour": "direct"
       },
       {
@@ -371,6 +371,7 @@
         "tag": "AWAvenue-Ads-Rule",
         "format": "binary",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
+        "update_interval": "1d",
         "download_detour": "direct"
       }
     ],
