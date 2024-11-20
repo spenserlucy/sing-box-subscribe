@@ -188,6 +188,10 @@
         "outbound": "Proxy"
       },
       {
+        "rule_set": "AWAvenue-Ads-Rule",
+        "outbound": "block"
+      },
+      {
         "rule_set": [
           "Binance",
           "OKX"
@@ -378,6 +382,13 @@
         "format": "binary",
         "url": "https://ghp.ci/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
         "update_interval": "10d",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "AWAvenue-Ads-Rule",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
         "download_detour": "direct"
       }
     ],
