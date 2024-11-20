@@ -180,7 +180,7 @@
       {
         "rule_set": "AWAvenue-Ads-Rule",
         "outbound": "block"
-      }
+      },
       {
         "rule_set": [
           "Binance",
