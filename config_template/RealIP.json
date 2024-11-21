@@ -413,7 +413,8 @@
         "TW",
         "SG",
         "JP",
-        "KO"
+        "KO",
+        "Select"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
@@ -423,7 +424,8 @@
       "tag": "USRule",
       "outbounds": [
         "US",
-        "USS"
+        "USS",
+        "Select"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
