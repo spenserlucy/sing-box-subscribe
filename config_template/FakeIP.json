@@ -393,12 +393,9 @@
       "tag": "BinOKX",
       "outbounds": [
         "TW",
-        "HK",
         "SG",
         "JP",
-        "KO",
-        "US",
-        "USS"
+        "KO"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
@@ -407,11 +404,6 @@
     {
       "tag": "USRule",
       "outbounds": [
-        "TW",
-        "HK",
-        "SG",
-        "JP",
-        "KO",
         "US",
         "USS"
       ],
