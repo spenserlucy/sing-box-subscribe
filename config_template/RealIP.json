@@ -425,11 +425,6 @@
     {
       "tag": "USRule",
       "outbounds": [
-        "TW",
-        "HK",
-        "SG",
-        "JP",
-        "KO",
         "US",
         "USS"
       ],
