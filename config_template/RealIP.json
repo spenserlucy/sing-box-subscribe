@@ -188,7 +188,10 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": "AWAvenue-Ads-Rule",
+        "rule_set": [
+          "AWAvenue-Ads-Rule",
+          "AdGuardSDNSFilter"
+        ],
         "outbound": "block"
       },
       {
@@ -389,6 +392,15 @@
         "tag": "AWAvenue-Ads-Rule",
         "format": "binary",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "AdGuardSDNSFilter",
+        "type": "remote",
+        "format": "binary",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
         "update_interval": "1d",
         "download_detour": "direct"
       }
